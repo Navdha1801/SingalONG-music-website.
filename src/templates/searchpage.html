@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+    <script src="navi.js"></script>
+    <style>
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        z-index: 1;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+      }
+
+      nav a.hovered {
+        color: #84ffc6;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0;
+      }
+
+      nav a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5em;
+      }
+
+      nav a.active {
+        background-color: #fff;
+        color: #333;
+      }
+
+      nav a.new-link {
+        color: #84ffc6;
+        padding: 0.5em;
+        margin-right: 50%;
+        font-size: 23px;
+        position: absolute;
+        right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      main {
+        margin-top: 4em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+      link.addEventListener("mouseenter", function() {
+        link.classList.add("hovered");
+      });
+      link.addEventListener("mouseleave", function() {
+        link.classList.remove("hovered");
+      });
+    });
+  });
+      </script>
+      <nav>
+        <ul>
+          <li><a href="/" class="nav-link">Artist</a></li>
+          <li><a href="/homepage" class="nav-link">Home</a></li>
+          <li><a href="/aboutpage" class="nav-link">About</a></li>
+          <li><a href="#" class="nav-link new-link"><strong>SingalONG</strong></a></li>
+          <li><a href="/spotlight" class ="nav-link">Spotlight</a></li>
+          <li><a href="/searchpage" class ="nav-link active">Search</a></li>
+          <li><a href="/playlistpage" class ="nav-link">Playlist</a></li>
+        </ul>
+      </nav>
+    </header>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Search Page</title>
+    <br><br><br><br><br>
+    <script>
+      window.onload = function() {
+    // Attach event listeners to the filter input fields
+    var durationFilter = document.getElementById("duration-filter");
+    durationFilter.addEventListener("input", search);
+  
+    var explicitnessFilter = document.getElementById("explicitness-filter");
+    explicitnessFilter.addEventListener("change", search);
+  };
+  
+  function search() {
+    // Get the search term from the search bar input field
+    var searchTerm = document.getElementById("search-bar").value;
+  
+    // Get the maximum duration from the duration filter input field
+    var maxDuration = document.getElementById("duration-filter").value;
+  
+    // Get the explicitness filter value
+    var explicitness = document.getElementById("explicitness-filter").value;
+  
+    // Construct the search URL with filters
+    var url =
+      "https://itunes.apple.com/search?term=" +
+      searchTerm +
+      "&entity=song" +
+      "&attribute=songTerm" +
+      "&limit=10";
+  
+    // Add duration filter to the search URL if a value is specified
+    if (maxDuration) {
+      url += "&duration=" + (maxDuration * 60);
+    }
+  
+    // Add explicitness filter to the search URL if a value is specified
+    if (explicitness) {
+      url += "&explicit=" + explicitness;
+    }
+  
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        // Check if any results were returned
+        if (!data.results || data.results.length === 0) {
+          // Display a message indicating that no results were found
+          var searchResults = document.getElementById("search-results");
+          searchResults.innerHTML = "<p>No results found.</p>";
+        } else {
+          // Display the search results
+          var searchResults = document.getElementById("search-results");
+          searchResults.innerHTML = "";
+  
+          for (var i = 0; i < data.results.length; i++) {
+            var result = data.results[i];
+  
+            // Create a card for the search result
+            var card = document.createElement("div");
+            card.classList.add("card");
+  
+            // Add the album poster to the card
+            var artwork = document.createElement("img");
+            artwork.src = result.artworkUrl100;
+            card.appendChild(artwork);
+  
+            // Add the artist name to the card
+            var artistName = document.createElement("p");
+            artistName.innerText = "Artist Name: "+ result.artistName;
+            card.appendChild(artistName);
+  
+            // Add the track name to the card
+            var trackName = document.createElement("p");
+            trackName.innerText = "Track Name: " + result.trackName;
+            card.appendChild(trackName);
+  
+            // Check if the search result contains a playable audio clip
+            if (result.kind === "song" && result.previewUrl) {
+              // Add an audio player to the card
+              var audio = document.createElement("audio");
+              audio.controls = true;
+              audio.src = result.previewUrl;
+              card.appendChild(audio);
+            }
+  
+            // Add the card to the search results container
+            searchResults.appendChild(card);
+          }
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+  
+  function clearFilters() {
+   // Clear the duration filter input field
+   document.getElementById("duration-filter").value = "";
+  
+   // Clear the explicitness filter input field
+   document.getElementById("explicitness-filter").value = "";
+ 
+   // Call the search function to update the search results
+   search();
+  }
+  
+    </script>
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+    const text = "Search for your favourite albums and songs with SingalONG"; // Text to be typed out
+    const speed = 110; // Typing speed (in milliseconds)
+    const container = document.querySelector('#typing-effect'); // Container element
+    let i = 0;
+
+    function typeWriter() {
+        if (i < text.length) {
+            container.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+
+    typeWriter();
+});
+    </script>
+
+    <style>
+        body{
+            background-color:black ;
+            background-image: url('../static/bgimg.avif');
+            background-size:100% 1000px;
+            color: rgb(235, 120, 120);
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="typing-effect" style="color:#950505;font-size:50px"></div>
+    <br><br><br>
+    <form>
+      <label for="search-bar"><strong>Search:</strong></label>
+      <input type="text" id="search-bar" name="search-bar">
+      <button type="button" onclick="search()"><strong>Search</strong></button>
+      <button type="button" onclick="clearFilters()"><strong>Clear Filters</strong></button>
+    </form>
+<br>
+    <!-- Filter controls -->
+    <div>
+      <label for="duration-filter"><strong>Max Duration (minutes):</strong></label>
+      <input type="number" id="duration-filter" name="duration-filter">
+    </div>
+    <br>
+    <div>
+      <label for="explicitness-filter"><strong>Explicitness:</strong></label>
+      <select id="explicitness-filter" name="explicitness-filter">
+        <option value=""><strong>Any</strong></option>
+        <option value="explicit"><strong>Explicit</strong></option>
+        <option value="cleaned"><strong>Clean</strong></option>
+        <option value="notExplicit"><strong>Not Explicit</strong></option>
+      </select>
+    </div>
+
+    <div id="search-results"></div>
+    
+    <script src="hover.js"></script>
+    <br><br><br><br><br><br><br>
+              <hr style=" width: 100%; color:greenyellow; ">
+              <footer>
+                <p class ="footer"><center>Copyright © 2023 My Website. All rights reserved.<br><a href="/aboutpage" style="color:red;">Go to ABOUT Page.</a></center></p>
+                
+              </footer>
+  </body>
+</html>
+</main>
+</body>
+</html>
+</main>
+</body>
+</html>

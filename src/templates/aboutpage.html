@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <script src="navi.js"></script>
+  <style>
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      z-index: 1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+    }
+
+    nav a.hovered {
+      color: #84ffc6;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0;
+    }
+
+    nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5em;
+    }
+
+    nav a.active {
+      background-color: #fff;
+      color: #333;
+    }
+
+    nav a.new-link {
+      color: #84ffc6;
+      padding: 0.5em;
+      margin-right: 50%;
+      font-size: 23px;
+      position: absolute;
+      right: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    main {
+      margin-top: 4em;
+    }
+    body {
+        background: linear-gradient(to right, #00ffc3, #ff00e6);
+        overflow-x: hidden;
+      }
+      .mytext{
+         margin-top:-130%;
+         margin-left:0%;
+         margin-right: 20%;
+         font-size:25px;
+      }
+      .mytext1{
+        margin-top: 30%;
+        margin-left: 2%;
+        font-size:80px;
+        font-style:italic;
+        color:rgb(7, 16, 77);
+      }
+      .mytext2{
+        margin-top: -20%;
+        margin-left:15%;
+        margin-right: 50%;
+        font-size:20px;
+        font-style:oblique;
+        color:rgb(105, 5, 81)
+      }
+      .mytext3{
+        margin-top: 25%;
+        margin-left: 2%;
+        font-size:35px;
+        color:#6e3620
+      }
+      #my-container {
+        float:right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      /* CSS for the image */
+      #my-image {
+        width: 55%;
+        height: 50%;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        margin-right:-3% ;
+        margin-top:-112%;
+        box-shadow: 2px 2px 4px black;
+        transform: rotate(180deg);
+        animation: flip 2s ease-in-out forwards;
+      }
+
+      /* CSS for the text */
+      #class1 {
+        font-size: 3em;
+        color:brown;
+        transform: translateX(-50%) rotate(180deg);
+        margin-right: 0%;
+        margin-top: -3%;
+        animation: flip 2s ease-in-out forwards;
+      }
+      #class2 {
+        font-size: 3em;
+        color:blue;
+        transform: translateX(-50%) rotate(180deg);
+        margin-right: 0%;
+        margin-top: -2%;
+        animation: flip 2s ease-in-out forwards;
+      }
+      @keyframes flip {
+        0% {
+          transform: rotate(180deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      .figure {
+        position: absolute;
+        top:50%;
+        left:10%;
+        transform:translate(-50%,-50%);
+        width:200 px;
+        height:400 px;
+      }
+      .head {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color:#d1937b;
+        z-index: 2;
+      }
+      .neck {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #d1937b;
+      }
+      .torso {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 200px;
+        background-color: #87044ee2;
+        border-radius: 10px;
+      }
+      .arm-left,
+      .arm-right {
+        position: absolute;
+        top: 140px;
+        width: 40px;
+        height: 120px;
+        background-color:#d1937b;
+        border-radius: 10px;
+        transform: rotate(-45deg);
+      }
+      .arm-left {
+        left: -40px;
+      }
+      .arm-right {
+        right: -40px;
+        transform: rotate(45deg);
+      }
+      .hand-left,
+      .hand-right {
+        position: absolute;
+        top: 80px;
+        width: 40px;
+        height: 40px;
+        background-color: #d1937b;
+        border-radius: 50%;
+      }
+      .hand-left {
+        left: -10px;
+      }
+      .hand-right {
+        right: -10px;
+      }
+      .leg-left,
+      .leg-right {
+        position: absolute;
+        top: 300px;
+        width: 40px;
+        height: 120px;
+        background-color: #1f1203;
+        border-radius: 10px;
+        transform: rotate(-15deg);
+      }
+      .leg-left {
+        left: 20px;
+      }
+      .leg-right {
+        right: 20px;
+        transform: rotate(15deg);
+      }
+      </style>
+      <style type="text/css">
+		body {
+		  height: 100vh;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		}
+
+
+		.large-bubble {
+		  position: relative;
+		  width: 600px;
+		  height: 400px;
+		  border-radius: 50%;
+		  background-color: #999;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  font-size: 20px;
+      margin-top:-35%;
+      margin-left: 50%;
+		  color: white;
+		  animation: large-bubble-pop 1s ease-out;
+		}
+
+		.large-bubble::before {
+		  content: "";
+		  position: absolute;
+		  top: -40px;
+		  left: 50%;
+		  transform: translateX(-50%);
+		  width: 80px;
+		  height: 80px;
+		  border-radius: 50%;
+		  background-color: #999;
+		  z-index: -1;
+      color:rgb(38, 95, 142);
+		  animation: large-bubble-float 2s ease-in-out infinite;
+		}
+
+		@keyframes small-bubble-float {
+		  0% {
+		    transform: translateY(0);
+		  }
+		  50% {
+		    transform: translateY(-10px);
+		  }
+		  100% {
+		    transform: translateY(0);
+		  }
+		}
+
+		@keyframes large-bubble-float {
+		  0% {
+		    transform: translateX(-50%) translateY(0);
+		  }
+		  50% {
+		    transform: translateX(-50%) translateY(-10px);
+		  }
+		  100% {
+		    transform: translateX(-50%) translateY(0);
+		  }
+		}
+
+		@keyframes large-bubble-pop {
+		  0% {
+		    transform: scale(0);
+		  }
+		  100% {
+		    transform: scale(1);
+		  }
+		}
+    @keyframes slide {
+      from { transform: translateX(0%); }
+      to { transform: translateX(1000%); }
+    }
+    
+    .move {
+      animation: slide 750s infinite;
+      margin-top:50% ;
+      margin-bottom: 130%;
+      font-size:20px;
+      white-space: nowrap;
+      color:darkred;
+    }
+    img{
+        float:left;
+    }
+    
+  </style>
+</head>
+<body>
+    <header>
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+      link.addEventListener("mouseenter", function() {
+        link.classList.add("hovered");
+      });
+      link.addEventListener("mouseleave", function() {
+        link.classList.remove("hovered");
+      });
+    });
+  });
+      </script>
+      <nav>
+        <ul>
+          <li><a href="/" class="nav-link">Artist</a></li>
+          <li><a href="/homepage" class="nav-link">Home</a></li>
+          <li><a href="/aboutpage" class="nav-link active">About</a></li>
+          <li><a href="#" class="nav-link new-link"><strong>SingalONG</strong></a></li>
+          <li><a href="/spotlight" class ="nav-link">Spotlight</a></li>
+          <li><a href="/searchpage" class ="nav-link">Search</a></li>
+          <li><a href="/playlistpage" class ="nav-link">Playlist</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <div class="move">
+          <br>
+          <br>
+          <br>
+          <strong>
+            KNOW MORE ABOUT SingalONG!!!</strong>
+            <br>
+            <br>
+          </div>
+          <p class="mytext" >Music gives soul to the universe,wings to the mind,
+            flight to the imagination and life to everything,so why not SingalONG?
+            Now with SingalONG,the top-class creations of your favourite artists are
+            just a click away.Music possesses the magical ability to transfer yourself
+            into the world,away from the reality,the one that's serene and tranquil.
+            And,we, at SingalONG have put our heart and soul to provide you with the most 
+            wonderful musical experience.Listen to the top artists,top songs,top albums only on SingalONG.
+            Our website provides you facilities to listen to any album of any of your favourite artist.
+          </p><br><br>
+          <p class="mytext1">
+            Where words fail,music speaks!!
+          </p>
+      
+          <div class="large-bubble">
+            <span>Without music,life would be B flat!!</span>
+          </div>
+      
+          <div id="my-container">
+            <img id="my-image" src="../static/music.png" alt="My Image">
+            <span id="class1">S</span>
+            <span id="class2">i</span>
+            <span id="class2">n</span>
+            <span id="class2">g</span>
+            <span id="class2">A</span>
+            <span id="class2">l</span>
+            <span id="class1">o</span>
+            <span id="class1">n</span>
+            <span id="class1">g</span>
+            </div>
+          <div class="figure">
+              <div class="head"></div>
+              <div class="neck"></div>
+              <div class="torso"></div>
+              <div class="arm-left">
+                <div class="hand-left"></div>
+              </div>
+              <div class="arm-right">
+                <div class="hand-right"></div>
+              </div>
+              <div class="leg-left">
+                </div>
+               <div class="leg-right">
+               </div>
+               </div>
+               <p class="mytext2">
+                Music is the epithet of emotions.So come and feel all emotions and express yourself to the fullest.
+                So come along, SingalONG and experience joy on the way.
+                Tap on your favourite artist and experience endless joy. So come along, 
+                fall into the magic of music, feel along only with SingalONG.
+               </p>
+               <p class="mytext3"><strong>
+                ABOUT US -</strong><br><br>
+                <img src="../static/Aditi.jpeg" style="width:300px"> NAME:ADITI SINGH<br> EMAIL:aditi.singh@students.iiit.ac.in<br><br><br><br><br><br><br><br>
+                <img src="../static/Navdha.jpeg" style="width:300px"> NAME:NAVDHA BANSAL<br> EMAIL:navdha.bansal@students.iiit.ac.in
+                       
+                
+
+                </p>
+               
+    <br><br><br><br><br><br><br>
+              <hr style=" width: 100%; color:greenyellow; ">
+              <footer>
+                <p class ="footer"><center>Copyright © 2023 My Website. All rights reserved.<br><a href="/aboutpage" style="color:red;">Go to ABOUT PAGE</a></center></p>
+                
+              </footer>
+              </main>
+              
+              <script src="hover.js"></script>
+            </body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Playlist</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ed72f8;
+      }
+      th {
+        background-color: #bcfdff;
+      }
+      .remove-button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        z-index: 1;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+      }
+
+      nav a.hovered {
+        color: #84ffc6;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0;
+      }
+
+      nav a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5em;
+      }
+
+      nav a.active {
+        background-color: #fff;
+        color: #333;
+      }
+
+      nav a.new-link {
+        color: #84ffc6;
+        padding: 0.5em;
+        margin-right: 50%;
+        font-size: 23px;
+        position: absolute;
+        right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      main {
+        margin-top: 4em;
+      }
+      /* Set font family and size */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+
+/* Style the main content */
+main {
+  margin: 20px;
+}
+
+
+button {
+  background-color: #02005e;
+  color: #eeff01;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff9595e8;
+}
+
+
+
+.footer a {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+      link.addEventListener("mouseenter", function() {
+        link.classList.add("hovered");
+      });
+      link.addEventListener("mouseleave", function() {
+        link.classList.remove("hovered");
+      });
+    });
+  });
+      </script>
+      <nav>
+        <ul>
+          <li><a href="/" class="nav-link ">Artist</a></li>
+          <li><a href="/homepage" class="nav-link">Home</a></li>
+          <li><a href="/aboutpage" class="nav-link">About</a></li>
+          <li><a href="#" class="nav-link new-link"><strong>SingalONG</strong></a></li>
+          <li><a href="/spotlight" class ="nav-link">Spotlight</a></li>
+          <li><a href="/searchpage" class ="nav-link">Search</a></li>
+          <li><a href="/playlistpage" class ="nav-link active">Playlist</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main style="background-color: rgba(255, 148, 192, 0.89)">
+      <h1>Playlist</h1>
+    
+        <table style="border-collapse: collapse; width: 100%; max-width: 600px; margin: 0 auto;">
+          <thead style="background-color: #333; color: #b32f2f;">
+            <tr>
+              <th style="padding: 12px; text-align: left;">ID</th>
+              <th style="padding: 12px; text-align: left;">Song</th>
+              <th style="padding: 12px; text-align: left;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="playlistTableBody">
+          </tbody>
+        </table>
+  
+      <script>
+    // Fetch data from server and insert it into the table
+    fetch('/api/playlist')
+      .then(response => response.json())
+      .then(data => {
+        const tableBody = document.querySelector('#playlistTableBody');
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          const idCell = document.createElement('td');
+          const titleCell = document.createElement('td');
+          const deleteCell = document.createElement('td');
+          const deleteButton = document.createElement('button');
+          idCell.innerText = item.id;
+          titleCell.innerText = item.title;
+          deleteButton.innerText = 'Delete';
+          deleteButton.onclick = () => {
+            fetch('/api/delete_song', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+              body: `id=${item.id}`
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                row.remove();
+              }
+            })
+            .catch(error => {
+              console.error('Error deleting song:', error);
+            });
+          };
+          deleteCell.appendChild(deleteButton);
+          row.appendChild(idCell);
+          row.appendChild(titleCell);
+          row.appendChild(deleteCell);
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+</script>
+</main>
+<br><br><br><br><br><br><br>
+          <hr style=" width: 100%; color:greenyellow; ">
+          <footer>
+            <p class ="footer"><center>Copyright © 2023 My Website. All rights reserved.<br><a href="/aboutpage" style="color:red;">Go to ABOUT Page.</a></center></p>
+            
+          </footer>
+          
+  </body>
+</html>

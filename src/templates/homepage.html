@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      z-index: 1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+    }
+
+    nav a.hovered {
+      color: #84ffc6;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0;
+    }
+
+    nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5em;
+    }
+
+    nav a.active {
+      background-color: #fff;
+      color: #333;
+    }
+
+    nav a.new-link {
+      color: #84ffc6;
+      padding: 0.5em;
+      margin-right: 50%;
+      font-size: 23px;
+      position: absolute;
+      right: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    main {
+      margin-top: 4em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach(link => {
+    link.addEventListener("mouseenter", function() {
+      link.classList.add("hovered");
+    });
+    link.addEventListener("mouseleave", function() {
+      link.classList.remove("hovered");
+    });
+  });
+});
+    </script>
+    <nav>
+      <ul>
+        <li><a href="/" class="nav-link">Artist</a></li>
+        <li><a href="/homepage" class="nav-link active">Home</a></li>
+        <li><a href="/aboutpage" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link new-link"><strong>SingalONG</strong></a></li>
+        <li><a href="/spotlight" class ="nav-link">Spotlight</a></li>
+        <li><a href="/searchpage" class ="nav-link">Search</a></li>
+        <li><a href="/playlistpage" class ="nav-link">Playlist</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+     
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>MY PAGE</title>
+        <style>
+            table {
+               
+                overflow-x: scroll;
+                overflow-y: scroll;  
+    
+                }
+                tr {
+    border-spacing: 0;
+  }
+            .mypage{
+                margin-top: 75px;
+                font-size: 50px;
+                color: lightpink;
+            }
+            .image-text{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-size: 21px;
+                color:white;
+            }
+            .text{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-size: 40px;
+                color:white;
+            }
+            body{
+                background-color: black;
+            }
+            footer{
+              color:navajowhite;
+              font-size:20px;
+            }
+            @keyframes slide {
+      from { transform: translateX(0%); }
+      to { transform: translateX(30%); }
+    }
+    
+    .move {
+      animation: slide 5s infinite;
+    }
+                
+        </style>
+        </head>
+        <body>
+            <table>
+                <div class="mypage">
+                    <marquee direction="right">TRENDING ARTISTS,ALBUMS AND SONGS!</marquee>
+
+                </div>
+                <tr>
+                    <p style="color:indianred;font-size:125px;">TOP ARTISTS</p>
+                </tr>
+                <tr>
+                  <td><a href = "/bts">
+                    <img src="../static/BTS.jpeg" style="width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-right: 100px;"></a>
+                    <figure class="text"><figcaption class="move"> BTS </figcaption></figure></td>
+                    <td>
+                        <a href="/charlieputh"><img src="../static/CHARLIE.png" style="width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-left: 250px; margin-right: 100px;">
+                    </a><figure class="text"><figcaption class="move"> CHARLIE PUTH  </figcaption></figure></td>
+                    <td>
+                        <a href="/ar_rahman"><img src="../static/ar_rahman.jpg" style="width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-left: 250px; margin-right: 100px;"></a>
+                            <figure class="text"><figcaption class="move"> A R RAHMAN </figcaption></figure>
+                    </td>
+                    </tr>
+                
+              </table>
+              <table>
+                <tr>
+                    <p style="color:indianred;font-size:125px;">TOP ALBUMS</p>
+                </tr>
+                <tr>
+                    <td>
+                        <a href ="/arijitsinghBrahmastra" >
+                <img src="../static/arijitsinghbrahmastra.jpg" style="width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-right: 100px;"></a>
+                <figure class="image-text"><figcaption class="move">NAME OF ALBUM: Brahmastra <br>NO. OF SONGS: 5 <br>YEAR OF RELEASE: 2022</figcaption></figure></td>
+                   <td>
+                    <a href = "/btswings">
+                        <img src="../static/BTSalbum3.jpeg" style="width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-left: 250px; margin-right: 100px;"></a>
+                        <figure class="image-text"><figcaption class="move">NAME OF ALBUM: WINGS <br>NO. OF SONGS: 15 <br>YEAR OF RELEASE: 2016</figcaption></figure></td>
+                   </td>
+                   <td>
+                    <a href = "/dualipaspotifysessions">
+                        <img src="../static/dualipaSPOTIFYSESSIONS.jpeg" style="width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-left: 250px; margin-right: 100px;"></a>
+                        <figure class="image-text"><figcaption class="move">NAME OF ALBUM: Spotify Sessions <br>NO. OF SONGS: 7 <br>YEAR OF RELEASE: 2016</figcaption></figure></td>
+                   </td> 
+                </tr>
+              </table>
+              <table>
+              <tr>
+                <p style="color:indianred;font-size:125px;">TOP SONGS</p>
+              </tr>
+              <tr>
+                <td>
+                    <img src="../static/kesariya.jpg" style="border-radius: 50%;width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-right: 100px;">
+                    <figure class="image-text"><figcaption class="move">NAME OF SONG:Kesariya<br>DURATION: 4:28</figcaption></figure>
+                </td>
+                <td>
+                    <img src="../static/levitating.jpeg" style="border-radius: 50%;width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-left: 200px; margin-right: 100px;">
+                    <figure class="image-text"><figcaption class="move">NAME OF SONG:Levitating<br>DURATION: 3:23</figcaption></figure>
+                </td>
+                <td>
+                    <img src="../static/salaam.jpg" style="border-radius: 50%;width: 500px; height: 500px; overflow-x: auto; overflow-y: auto; margin-bottom: 70px; margin-left: 200px; margin-right: 100px;">
+                    <figure class="image-text"><figcaption class="move">NAME OF SONG:Maa Tujhe Salaam<br>DURATION: 6:14</figcaption></figure>
+                </td>
+              </tr>
+              </table>
+              <br><br><br><br><br><br><br>
+              <hr style=" width: 100%; color:greenyellow; ">
+              <footer>
+                <p class ="footer"><center>Copyright © 2023 My Website. All rights reserved.<br><a href="/aboutpage" style="color:red;">Go to ABOUT Page.</a></center></p>
+                
+              </footer>
+              <script src="hover.js"></script>
+            </body>
+    </html>
+
+  </main>
+</body>
+</html>

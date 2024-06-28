@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      z-index: 1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+    }
+
+    nav a.hovered {
+      color: #84ffc6;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0;
+    }
+
+    nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5em;
+    }
+
+    nav a.active {
+      background-color: #fff;
+      color: #333;
+    }
+
+    nav a.new-link {
+      color: #84ffc6;
+      padding: 0.5em;
+      margin-right: 50%;
+      font-size: 23px;
+      position: absolute;
+      right: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    main {
+      margin-top: 4em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach(link => {
+    link.addEventListener("mouseenter", function() {
+      link.classList.add("hovered");
+    });
+    link.addEventListener("mouseleave", function() {
+      link.classList.remove("hovered");
+    });
+  });
+});
+    </script>
+    <nav>
+      <ul>
+        <li><a href="/" class="nav-link active">Artist</a></li>
+        <li><a href="/homepage" class="nav-link">Home</a></li>
+        <li><a href="/aboutpage" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link new-link"><strong>SingalONG</strong></a></li>
+        <li><a href="/spotlight" class ="nav-link">Spotlight</a></li>
+        <li><a href="/searchpage" class ="nav-link">Search</a></li>
+        <li><a href="/playlistpage" class ="nav-link">Playlist</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+
+    <!DOCTYPE html>
+<html>
+    <head>
+        <title>ARTIST PAGE</title>
+    <style>
+        table {           
+            overflow-x: scroll;
+            overflow-y: scroll;  
+        }
+        .mypage{
+            margin-top: 135px;
+            font-size: 90px;
+            text-align: center;
+            color:rgb(28, 220, 216);
+        }
+        .rightcol{
+            color:lawngreen;
+            margin-left: 135px;
+            align-items: center;
+            text-align: center;
+            font-size: 37.8px;
+        }
+        .leftcol{
+            color:lawngreen;
+            margin-left: 360px;
+            margin-right: 135px;
+            align-items: center;
+            text-align: center;
+            font-size: 37.8px;
+        }
+        .mypage{
+            margin-top:150px;
+            font-size:90px;
+        }
+        .title{
+            color:fuchsia;
+        }
+        body{
+            background-color: black;
+        }          
+        footer{
+            color:#fff;
+        }  
+    </style>
+    </head>
+    <body>
+      <script>
+        function addToPlaylist(songId,songName) {
+        fetch('/add-to-playlist', {
+        method: 'POST',
+        headers: {
+           'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          'song_id': songId,
+          'song_name': songName
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert('Song added to playlist.');
+        } else if (data.status === 'duplicate') {
+          alert('Song already in playlist.');
+        } else {
+          alert('Error adding song to playlist.');
+        }
+      })
+      .catch(error => {
+       console.error('Error adding song to playlist:', error);
+        alert('Error adding song to playlist.');
+      });
+    }
+  </script>
+        <table>
+            <div class="mypage">
+                <center><strong>Dua Lipa's artistry in CLUB FUTURE NOSTALGIA album </strong></center><br><br><br>
+            <tr>
+              <td>
+                <div class="leftcol">
+                    <div class="title">
+                NAME OF SONG:</div> Levitating
+                <br><div class="title">DURATION:</div> 3 mins 56sec<br>
+                <button onclick="addToPlaylist('155','Levitating')"> Add to Playlist</button><br><br><br><br></td>
+                </div>
+                <td>
+                    <div class="rightcol">
+                        <div class="title">
+                NAME OF SONG:</div> Future Nostalgia (The Blessed Madonna Remix) <br><div class="title">DURATION: </div> 2 mins 54sec<br>
+                <button onclick="addToPlaylist('155','  Future Nostalgia (The Blessed Madonna Remix)')"> Add to Playlist</button><br><br><br><br></div></td>
+                </tr>
+                <tr>
+                   <td>
+                    <div class="leftcol">
+                        <div class="title">
+                      NAME OF SONG:</div> Hallucinate (Paul Woolford Remix) <br><div class="title">DURATION:</div> 1 min 49sec<br>
+                      <button onclick="addToPlaylist('156',' Hallucinate (Paul Woolford Remix)')"> Add to Playlist</button><br><br><br><br></td>
+                    </div>
+                      <td>
+                    <div class="rightcol">
+                        <div class="title">
+                      NAME OF SONG:</div> Physical (Mark Ronson Remix) <br><div class="title">DURATION:</div> 2 mins 40sec<br>
+                      <button onclick="addToPlaylist('157',' Physical (Mark Ronson Remix)')"> Add to Playlist</button><br><br><br><br></div></td>
+                      </tr>
+                <tr>
+                    <td>
+                        <div class="leftcol">
+                            <div class="title">
+                       NAME OF SONG:</div> Pretty Please( Masters at Work Remix) <br><div class="title">DURATION:</div> 1 min 55sec<br>
+                       <button onclick="addToPlaylist('158','Pretty Please( Masters at Work Remix) ')"> Add to Playlist</button><br><br><br><br></div></td>
+                        
+                       <td>
+                        <div class="rightcol">
+                            <div class="title">
+                      NAME OF SONG:</div> Love Again (Horse Meet Disco Remix) <br> <div class="title">DURATION:</div> 2 mins 56sec<br>
+                      <button onclick="addToPlaylist('159',' Love Again (Horse Meet Disco Remix)')"> Add to Playlist</button><br><br><br><br></div></td>
+                    </tr>              
+                     <tr>
+                       <td>
+                        <div class="leftcol">
+                            <div class="title">
+                        NAME OF SONG:</div>Cool (Jayda G Remix) <br> <div class="title">
+                            DURATION:</div> 2 mins  07sec<br>
+                            <button onclick="addToPlaylist('160','Cool (Jayda G Remix) ')"> Add to Playlist</button><br><br><br><br></td></div>
+                            <td>
+                                <div class="rightcol">
+                                    <div class="title">
+                              NAME OF SONG:</div>Pretty Please (Midland Refix) <br> <div class="title">DURATION:</div> 1 min 29sec<br>
+                              <button onclick="addToPlaylist('161',' Pretty Please (Midland Refix) ')"> Add to Playlist</button><br><br><br><br></div></td>
+                              <tr>
+                                <td>
+                                    <div class="leftcol">
+                                        <div class="title">
+                                   NAME OF SONG:</div> Don't Start Now (Yaeji Remix) <br><div class="title">DURATION:</div> 2 mins 54sec<br>
+                                   <button onclick="addToPlaylist('162','Do not Start Now (Yaeji Remix) ')"> Add to Playlist</button><br><br><br><br></div></td>
+                                    
+                                   <td>
+                                    <div class="rightcol">
+                                        <div class="title">
+                                  NAME OF SONG:</div> Kiss and Make Up (Remix)<br> <div class="title">DURATION:</div> 2 mins 22sec<br>
+                                  <button onclick="addToPlaylist('163','Kiss and Make Up (Remix)')"> Add to Playlist</button><br><br><br><br></div></td>
+                                </tr>   
+                        </tr>
+          </table>
+          <br><br><br><br><br><br><br>
+              <hr style=" width: 100%; color:greenyellow; ">
+              <footer>
+                <p class ="footer"><center>Copyright © 2023 My Website. All rights reserved.<br><a href="/aboutpage" style="color:red;">Go to ABOUT Page.</a></center></p>
+                
+              </footer>
+              <script src="hover.js"></script>
+        </body>
+</html>
+   
+  </main>
+</body>
+</html>

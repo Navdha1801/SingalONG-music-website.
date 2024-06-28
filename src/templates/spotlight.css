@@ -1,0 +1,253 @@
+    /* Set default font family and background */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #79093d, #43009b);
+}
+
+.artist-header {
+    font-size: 55px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 0 0 10px #710967;
+    animation: explode 1s infinite;
+  }
+  
+  @keyframes explode {
+    0% {
+      text-shadow: 0 0 10px #710967;
+    }
+    25% {
+      text-shadow: 0 0 40px #062b05;
+    }
+    50% {
+      text-shadow: 0 0 80px #062b05;
+    }
+    75% {
+      text-shadow: 0 0 40px #062b05;
+    }
+    100% {
+      text-shadow: 0 0 10px #710967;
+    }
+  }
+  
+
+/* Style the container */
+.artist-container {
+    margin: 150px;
+    background-image: url('shinypurple4.jpg');opacity:0.84;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-position: 20% 80%;
+	background-color: #333;
+    border-radius: 50px;
+    box-shadow: 0 0 120px rgba(37, 3, 61, 0.962);
+    display: flex;
+			flex-wrap: wrap;
+}
+
+/* Style the header */
+.artist-header {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style the artist image */
+.artist-image {
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.artist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Style the artist details */
+.artist-details {
+    margin: 50px auto;
+    line-height: 1.75;
+    max-width: 800px;
+    color: #ffffee;
+    font-size: 20px;
+    font-style: italic;
+    text-shadow: 1.4px 1.4px #ea00ff;
+    text-align: justify;
+}
+
+.artist-reviews {
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: center;
+    color:#dddddd;
+}
+.artist-reviews1 {
+    margin-top: 50px ;
+    margin-bottom: 30px ;
+    max-width: 800px;
+    text-align: center;
+    color:#b6f874;
+    
+    font-size:35px;
+}
+.type1{
+      margin-bottom:13px;
+      font-size:24px;
+      color:#75c6ff;
+}
+
+.type2{
+    
+    font-size:24px;
+    color:#75c6ff;
+}
+
+.type3{
+    margin-top:13px;
+    font-size:24px;
+    color:#75c6ff;
+}
+
+.artist-reviews h2 {
+    font-weight: bold;
+    font-size: 24px;
+    color:#75c6ff;
+}
+
+.artist-reviews label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size:18px;
+    color:#75c6ff;
+}
+
+.artist-reviews input[type="text"], 
+.artist-reviews textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.artist-reviews input[type="radio"] {
+    display: none;
+}
+
+.artist-reviews label[for^="rating"] {
+    font-size: 36px;
+    color: rgb(210, 125, 40);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.artist-reviews label[for^="rating"]:hover {
+    color: rgb(51, 255, 0);
+}
+
+.artist-reviews input[type="radio"]:checked + label {
+    color: rgb(51, 255, 0);s
+}
+
+.artist-reviews input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom:50px;
+
+}
+
+.artist-reviews input[type="button"]:hover {
+    background-color: darkgoldenrod;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Style the countdown timer */
+.countdown-timer {
+    margin: 50px auto;
+    color:#ff4398;  
+    max-width: 800px;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.countdown-timer h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #924294d7;
+}
+
+th {
+	background-color:#ff83f1;
+    border-radius:10px;
+}
+.element1 {
+
+    font-size:20px;
+    color:#1d8319;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.element2 {
+    font-size:20px;
+    color:#1d8319;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.element3 {
+    font-size:20px;
+    color:#1d8319;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+.countdown-timer1{
+    margin-top:100px;
+    font-size:30px;
+    font-family: "Times New Roman", Times, serif;
+    color:rgb(39, 255, 187);
+}

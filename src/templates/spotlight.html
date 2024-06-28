@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+    <script src="navi.js"></script>
+    <style>
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        z-index: 1;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+      }
+
+      nav a.hovered {
+        color: #84ffc6;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      nav li {
+        margin: 0;
+      }
+
+      nav a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5em;
+      }
+
+      nav a.active {
+        background-color: #fff;
+        color: #333;
+      }
+
+      nav a.new-link {
+        color: #84ffc6;
+        padding: 0.5em;
+        margin-right: 50%;
+        font-size: 23px;
+        position: absolute;
+        right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      main {
+        margin-top: 4em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+      link.addEventListener("mouseenter", function() {
+        link.classList.add("hovered");
+      });
+      link.addEventListener("mouseleave", function() {
+        link.classList.remove("hovered");
+      });
+    });
+  });
+      </script>
+      <nav>
+        <ul>
+          <li><a href="/" class="nav-link">Artist</a></li>
+          <li><a href="/homepage" class="nav-link">Home</a></li>
+          <li><a href="/aboutpage" class="nav-link">About</a></li>
+          <li><a href="#" class="nav-link new-link"><strong>SingalONG</strong></a></li>
+          <li><a href="/spotlight" class ="nav-link active">Spotlight</a></li>
+          <li><a href="/searchpage" class ="nav-link">Search</a></li>
+          <li><a href="/playlistpage" class ="nav-link">Playlist</a></li>
+        </ul>
+      </nav>
+    </header>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Favorite Artist</title>
+	
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #79093d, #43009b);
+}
+
+.artist-header {
+    font-size: 55px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 0 0 10px #710967;
+    animation: explode 1s infinite;
+  }
+  
+  @keyframes explode {
+    0% {
+      text-shadow: 0 0 10px #710967;
+    }
+    25% {
+      text-shadow: 0 0 40px #062b05;
+    }
+    50% {
+      text-shadow: 0 0 80px #062b05;
+    }
+    75% {
+      text-shadow: 0 0 40px #062b05;
+    }
+    100% {
+      text-shadow: 0 0 10px #710967;
+    }
+  }
+  
+
+/* Style the container */
+.artist-container {
+    margin: 150px;
+    background-image: url('../static/shinypurple4.jpg');opacity:0.84;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-position: 20% 80%;
+	background-color: #333;
+    border-radius: 50px;
+    box-shadow: 0 0 120px rgba(37, 3, 61, 0.962);
+    display: flex;
+			flex-wrap: wrap;
+}
+
+/* Style the header */
+.artist-header {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Style the artist image */
+.artist-image {
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.artist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Style the artist details */
+.artist-details {
+    margin: 50px auto;
+    line-height: 1.75;
+    max-width: 800px;
+    color: #ffffee;
+    font-size: 20px;
+    font-style: italic;
+    text-shadow: 1.4px 1.4px #ea00ff;
+    text-align: justify;
+}
+
+.artist-reviews {
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: center;
+    color:#dddddd;
+}
+.artist-reviews1 {
+    margin-top: 50px ;
+    margin-bottom: 30px ;
+    max-width: 800px;
+    text-align: center;
+    color:#b6f874;
+    
+    font-size:35px;
+}
+.type1{
+      margin-bottom:13px;
+      font-size:24px;
+      color:#75c6ff;
+}
+
+.type2{
+    
+    font-size:24px;
+    color:#75c6ff;
+}
+
+.type3{
+    margin-top:13px;
+    font-size:24px;
+    color:#75c6ff;
+}
+
+.artist-reviews h2 {
+    font-weight: bold;
+    font-size: 24px;
+    color:#75c6ff;
+}
+
+.artist-reviews label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size:18px;
+    color:#75c6ff;
+}
+
+.artist-reviews input[type="text"], 
+.artist-reviews textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.artist-reviews input[type="radio"] {
+    display: none;
+}
+
+.artist-reviews label[for^="rating"] {
+    font-size: 36px;
+    color: rgb(210, 125, 40);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.artist-reviews label[for^="rating"]:hover {
+    color: rgb(51, 255, 0);
+}
+
+.artist-reviews input[type="radio"]:checked + label {
+    color: rgb(51, 255, 0);
+}
+
+.artist-reviews input[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom:50px;
+
+}
+
+.artist-reviews input[type="button"]:hover {
+    background-color: darkgoldenrod;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Style the countdown timer */
+.countdown-timer {
+    margin: 50px auto;
+    color:#ff4398;  
+    max-width: 800px;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.countdown-timer h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #924294d7;
+}
+
+th {
+	background-color:#ff83f1;
+    border-radius:10px;
+}
+.element1 {
+
+    font-size:20px;
+    color:#1d8319;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.element2 {
+    font-size:20px;
+    color:#1d8319;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.element3 {
+    font-size:20px;
+    color:#1d8319;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+.countdown-timer1{
+    margin-top:100px;
+    font-size:30px;
+    font-family: "Times New Roman", Times, serif;
+    color:rgb(39, 255, 187);
+}
+
+  </style>
+</head>
+<body>
+	<div class="artist-container">
+        <div class="artist-header">
+		</div>
+		<div class="artist-image">
+			<img src="../static/BTSS.jpg" id="zoom" onmouseover="zoomIn()" onmouseout="zoomOut()">
+			
+		</div>
+		<div class="artist-details">
+			<p><strong>BTS </strong>, also known as the Bangtan Boys, is a South Korean boy band formed in Seoul in 2013. The group consists of seven members: RM, Jin, Suga, J-Hope, Jimin, V, and Jungkook. BTS has become a global sensation and is one of the most popular boy bands in the world.
+
+            The group's music style is a mix of hip-hop, pop, and R&B, with lyrics that touch on themes such as social issues, mental health, and self-love. BTS has released numerous albums and singles, with their most recent album, "PROOF" released in June 2022.
+            
+            In addition to their music, BTS is known for their elaborate music videos and energetic live performances. They have won numerous awards, including several Billboard Music Awards, American Music Awards, and MTV Europe Music Awards ,along with being Grammy Nominees.
+            
+            BTS has also become known for their philanthropic efforts, including their partnership with UNICEF to launch the "Love Myself" campaign to end violence against children and teenagers. They have also donated to various charities and organizations, including Black Lives Matter and the Korean Children's Cancer Foundation.
+            
+            Overall, BTS is a highly talented and influential group that has made a significant impact on the music industry and beyond.</p>
+		</div>
+		<div class="artist-reviews">
+			<div class="artist-reviews1">
+			Reviews and Ratings
+		   </div>
+			<form>
+				<label for="name"><div class ="type1">Name of User:</div></label>
+				<input type="text" id="name" name="name"><br><br>
+				<label for="rating"><div class ="type2">Rating:</div></label>
+				<input type="radio" id="rating1" name="rating" value="1">
+				<label for="rating1">1</label>
+				<input type="radio" id="rating2" name="rating" value="2">
+				<label for="rating2">2</label>
+				<input type="radio" id="rating3" name="rating" value="3">
+				<label for="rating3">3</label>
+				<input type="radio" id="rating4" name="rating" value="4">
+				<label for="rating4">4</label>
+				<input type="radio" id="rating5" name="rating" value="5">
+				<label for="rating5">5</label><br><br>
+				<label for="review"><div class ="type3">Review:</div></label><br>
+				<textarea id="review" name="review" rows="4" cols="50"></textarea><br><br>
+				<input type="button" value="Submit" onclick="submitReview()">
+			</form>
+			<table id="review-table">
+				<tr>
+					<th><div class="element1">Name of User</div></th>
+					<th><div class="element2">Rating</div></th></th>
+					<th><div class="element3">Review</div></th>
+				</tr>
+			</table>
+		</div>
+		<div class="countdown-timer">
+			<div class="countdown-timer1"><strong>Prepared to be enchanted by the upcoming album releasing in</strong></div>
+			<strong><p id="countdown"></p></strong>
+		</div>
+	</div>
+
+	<script>
+  // Zoom-in/Zoom-out animation
+function zoomIn() {
+	document.getElementById("zoom").style.transform = "scale(1.2)";
+	document.getElementById("zoom").style.transition = "transform 0.5s";
+}
+
+function zoomOut() {
+	document.getElementById("zoom").style.transform = "scale(1)";
+	document.getElementById("zoom").style.transition = "transform 0.5s";
+}
+window.onload = function() {
+    var header = document.querySelector('.artist-header');
+    header.classList.add('explode');
+  }
+  
+// Reviews/Rating mechanism
+function submitReview() {
+	// Get user input
+	var name = document.getElementById("name").value;
+	var rating = document.querySelector('input[name="rating"]:checked').value;
+	var review = document.getElementById("review").value;
+
+	// Create a new row in the table
+	var table = document.getElementById("review-table");
+	var row = table.insertRow(-1);
+	var nameCell = row.insertCell(0);
+	var ratingCell = row.insertCell(1);
+	var reviewCell = row.insertCell(2);
+
+	// Add user input to the new row
+	nameCell.innerHTML = name;
+	ratingCell.innerHTML = rating;
+	reviewCell.innerHTML = review;
+
+	// Clear user input
+	document.getElementById("name").value = "";
+	document.querySelector('input[name="rating"]:checked').checked = false;
+	document.getElementById("review").value = "";
+}
+
+// Countdown timer
+var releaseDate = new Date("June 30, 2023 00:00:00").getTime();
+
+var x = setInterval(function() {
+
+	var now = new Date().getTime();
+
+	var distance = releaseDate - now;
+
+	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+	+ minutes + "m " + seconds + "s ";
+
+	if (distance < 0) {
+		clearInterval(x);
+		document.getElementById("countdown").innerHTML = "EXPIRED";
+	}
+}, 1000);
+
+  </script>
+    <script src="hover.js"></script>
+    <br><br><br><br><br><br><br>
+              <hr style=" width: 100%; color:greenyellow; ">
+              <footer>
+                <p class ="footer"><center>Copyright © 2023 My Website. All rights reserved.<br><a href="/aboutpage" style="color:red;">Go to ABOUT Page.</a></center></p>
+                
+              </footer>
+</body>
+</html>
+</main>
+</body>
+</html>
+</main>
+</body>
+</html>
