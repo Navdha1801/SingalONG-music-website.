@@ -1,4 +1,4 @@
-
+To run the website,go to src folder and run handlejava.py file.Website will start running on localhost.
 1. Designing the base interface of the music website and display information about different artists,albums and songs using pure HTML and CSS.
 2. We have named our website SingalONG.
 3. There is a navigation bar at the top of each page which shows on which page the user is currently at  and contains link to three pages-HomePage,AboutPage,ArtistPage and name of our website SingalONG.
